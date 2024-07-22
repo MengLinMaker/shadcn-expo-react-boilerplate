@@ -12,6 +12,12 @@
       "style": {
         "noNonNullAssertion": "off",
         "useNodejsImportProtocol": "off"
+      },
+      "suspicious": {
+        "noRedeclare": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
       }
     }
   },
@@ -23,7 +29,13 @@
     }
   },
   "files": {
-    "ignore": ["fullstack", ".vscode", "**/.nuxt", "**/node_modules", "**/*.json"],
+    "ignore": [
+      "fullstack",
+      ".vscode",
+      "**/.nuxt",
+      "**/node_modules",
+      "**/*.json"
+    ],
     "ignoreUnknown": true
   }
 }
