@@ -10,7 +10,8 @@
     "rules": {
       "recommended": true,
       "style": {
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "useNodejsImportProtocol": "off"
       }
     }
   },
@@ -22,12 +23,7 @@
     }
   },
   "files": {
-    "ignore": [
-      "fullstack",
-      ".vscode",
-      "**/.nuxt",
-      "**/node_modules"
-    ],
+    "ignore": ["fullstack", ".vscode", "**/.nuxt", "**/node_modules", "**/*.json"],
     "ignoreUnknown": true
   }
 }
