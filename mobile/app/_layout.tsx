@@ -1,11 +1,11 @@
-import '~/global.css'
+import '~/shared/global.css'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { type Theme, ThemeProvider } from '@react-navigation/native'
 import { PortalHost } from '@rn-primitives/portal'
 import { SplashScreen, Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import { Platform } from 'react-native'
 import { ThemeToggle } from '~/components/ThemeToggle'
 import { NAV_THEME } from '~/lib/constants'
@@ -30,9 +30,9 @@ SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme()
-  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false)
+  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     ;(async () => {
       const theme = await AsyncStorage.getItem('theme')
       if (Platform.OS === 'web') {
@@ -55,7 +55,7 @@ export default function RootLayout() {
     })().finally(() => {
       SplashScreen.hideAsync()
     })
-  }, [])
+  }, [colorScheme, setColorScheme])
 
   if (!isColorSchemeLoaded) {
     return null

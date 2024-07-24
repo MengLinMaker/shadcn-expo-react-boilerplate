@@ -11,7 +11,9 @@ const TooltipTrigger = TooltipPrimitive.Trigger
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & { portalHost?: string }
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & {
+    portalHost?: string
+  }
 >(({ className, sideOffset = 4, portalHost, ...props }, ref) => (
   <TooltipPrimitive.Portal hostName={portalHost}>
     <TooltipPrimitive.Overlay style={Platform.OS !== 'web' ? StyleSheet.absoluteFill : undefined}>
